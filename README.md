@@ -22,7 +22,6 @@ El jugador asume el rol de capitán y, durante un número limitado de días, eli
 - Enviar señales con evento 50/50 (**ayuda** o **ataque**) y **noche** posterior.
 - Noche con consumo fijo y **15%** de un único evento aleatorio (tormenta / alienígenas / meteoritos con decisión del jugador).
 - Estado siempre “saturado” en [0, 100] para recursos e integridad.
-- Comentarios puntuales en el código (no invasivos).
 
 ---
 
