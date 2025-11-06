@@ -57,9 +57,10 @@ El jugador asume el rol de capitán y, durante un número limitado de días, eli
 .
 ├── ALGORITMOS.cpp                        # Código fuente principal (C++)
 ├── Analisis_y_Diseno_Simulador.drawio    # Diagrama de flujo (diagrams.net)
+├── Analisis_y_Diseno_Simulador.jpg       # Diagrama de flujo (imagen)
 ├── Analisis_y_Diseno_Simulador.pdf       # Documento de análisis y diseño (PDF)
 ├── Analisis_y_Diseno_Simulador.docx      # Documento editable (Word)
-└── README.md                              # Este archivo
+└── README.md                             # Este archivo
 ```
 
 ---
