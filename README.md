@@ -16,13 +16,23 @@ El jugador asume el rol de capitán y, durante un número limitado de días, eli
 
 ## ✨ Características
 
-- Menú diario simple (con validación robusta).\n- Exploración con hallazgos/peligros **independientes** por probabilidad.\n- Reparación proporcional a suministros (10 suministros → +1% integridad).\n- Enviar señales con evento 50/50 (**ayuda** o **ataque**) y **noche** posterior.\n- Noche con consumo fijo y **15%** de un único evento aleatorio (tormenta / alienígenas / meteoritos con decisión del jugador).\n- Estado siempre “saturado” en [0, 100] para recursos e integridad.\n- Comentarios puntuales en el código (no invasivos).\n
+- Menú diario simple (con validación robusta).
+- Exploración con hallazgos/peligros **independientes** por probabilidad.
+- Reparación proporcional a suministros (10 suministros → +1% integridad).
+- Enviar señales con evento 50/50 (**ayuda** o **ataque**) y **noche** posterior.
+- Noche con consumo fijo y **15%** de un único evento aleatorio (tormenta / alienígenas / meteoritos con decisión del jugador).\n- Estado siempre “saturado” en [0, 100] para recursos e integridad.
+- Comentarios puntuales en el código (no invasivos).
+
 ---
 
 ## 🧩 Reglas de juego (resumen)
 
 - **Explorar**: requiere `combustible ≥ 15`. Consume 15.
-  - Oxígeno: 60% (+20..40)\n  - Combustible: 25% (+10..30)\n  - Suministros: 25% (+30..100)\n  - Tormenta: 25% (−10%..−20% integridad)\n  - Aterrizaje forzado: 25% (−10%..−20% integridad)
+  - Oxígeno: 60% (+20..40)
+  - Combustible: 25% (+10..30)
+  - Suministros: 25% (+30..100)
+  - Tormenta: 25% (−10%..−20% integridad)
+  - Aterrizaje forzado: 25% (−10%..−20% integridad)
 
 - **Reparar**: si `integridad = 100%` o `suministros < 10` → **no se completa**.
   - `reparar = min(porcentaje, 100 − integridad, suministros/10)`
@@ -31,7 +41,11 @@ El jugador asume el rol de capitán y, durante un número limitado de días, eli
 
 - **Enviar señales** → evento inmediato:
   - **Ayuda**: `+60 combustible` y `+30% integridad`
-  - **Ataque**: `−15% integridad` y `−20 suministros`\n  - **Noche** (solo aquí): `−20 oxígeno`, `−30 suministros` y **15%** de un **único** evento:\n    - Tormenta cósmica: `−10 oxígeno`\n    - Alienígenas: 50% amistoso (`+20 combustible`) / 50% hostil (`−10% integridad`)\n    - Meteoritos: el jugador decide maniobrar (`−10..30 combustible`) o recibir impacto (`−15%..−25% integridad`).
+  - **Ataque**: `−15% integridad` y `−20 suministros`
+  - **Noche** (solo aquí): `−20 oxígeno`, `−30 suministros` y **15%** de un **único** evento:
+  - Tormenta cósmica: `−10 oxígeno`
+  - Alienígenas: 50% amistoso (`+20 combustible`) / 50% hostil (`−10% integridad`)
+  - Meteoritos: el jugador decide maniobrar (`−10..30 combustible`) o recibir impacto (`−15%..−25% integridad`).
 
 - **Rendirse**: fin de partida inmediato (no avanza el día).
 
@@ -48,14 +62,13 @@ El jugador asume el rol de capitán y, durante un número limitado de días, eli
 └── README.md                              # Este archivo
 ```
 
-> **Nota**: Si subes el `.drawio`, diagrams.net lo abre directamente. También puedes exportarlo a PNG/PDF desde la app web.
-
 ---
 
 ## 🛠️ Requisitos
 
 - **Compilador C++17** o superior (GCC, Clang o MSVC).
-- En **Windows**, consola en **UTF‑8** (el programa ya usa `SetConsoleOutputCP(CP_UTF8)`).\n- No hay dependencias externas.
+- En **Windows**, consola en **UTF‑8** (el programa ya usa `SetConsoleOutputCP(CP_UTF8)`).
+- No hay dependencias externas.
 
 ---
 
@@ -73,7 +86,7 @@ g++ -std=c++17 -O2 -Wall -Wextra -o nave ALGORITMOS.cpp
 ./nave
 ```
 
-> Consejo: compila con `-O2 -Wall -Wextra` para obtener advertencias útiles.
+> Consejo: Se compila con `-O2 -Wall -Wextra` para obtener advertencias útiles.
 
 ---
 
@@ -134,25 +147,6 @@ En `ALGORITMOS.cpp`:
 - **Rangos** de recursos/daños → busca expresiones como `rand() % 21 + 20`.
 - **Consumo nocturno** → bloque “Noche en el espacio”.
 
-> Recomendación: define constantes `constexpr` al inicio si vas a experimentar mucho.
-
----
-
-## 🚧 Roadmap (opcional)
-
-- [ ] Modo “evento único” por exploración (máx. 1 recurso y 1 peligro).
-- [ ] Dificultad configurable (fácil/normal/difícil).
-- [ ] Guardado/carga de partida (archivo JSON o binario simple).
-- [ ] Estadísticas finales (días sobrevividos, eventos sufridos/evitados).
-
----
-
-## 🤝 Contribuir
-
-1. Haz un fork y crea una rama: `feat/tu-mejora`
-2. Aplica cambios _mínimos_ (manteniendo el espíritu del código).
-3. Abre un Pull Request describiendo la intención y pruebas manuales.
-
 ---
 
 ## 📄 Licencia
@@ -163,6 +157,6 @@ Proyecto de uso académico. Puedes reutilizar citando la fuente del repositorio.
 
 ## 👤 Créditos
 
-- Equipo del proyecto (diseño y desarrollo).
+- Equipo del proyecto (1 persona para diseño y desarrollo).
 - Ajustes de impresión, validación de entradas y documentación.
 - Diagrama: `Analisis_y_Diseno_Simulador.drawio` (diagrams.net).
